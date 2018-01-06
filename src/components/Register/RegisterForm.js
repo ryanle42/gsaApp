@@ -27,6 +27,7 @@ export default class RegisterForm extends Component {
             autoCorrect={false}
             keyboardType='email-address'
             value={this.props.email}
+            blurOnSubmit={false}
             onChangeText={(text) => this.props.onEmailChange(text)}
           />
         </View>
@@ -47,6 +48,7 @@ export default class RegisterForm extends Component {
             ref={(input) => this.passwordInput = input}
             onSubmitEditing={() => this.confirmPassInput.focus()}
             value={this.props.password}
+            blurOnSubmit={false}
             onChangeText={(text) => this.props.onPasswordChange(text)}
 
           />

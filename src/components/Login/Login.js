@@ -6,15 +6,18 @@ import {
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
-  AsyncStorage
+  AsyncStorage,
+  ActivityIndicator
 } from 'react-native';
 import ErrorMsg from './ErrorMsg';
 import LoginForm from './LoginForm';
+import validator from 'validator';
 
 export default class Login extends Component {
   constructor() {
     super();
     this.state = {
+      loading: false,
       errorMsg: '',
       email: '',
       password: ''
@@ -33,28 +36,40 @@ export default class Login extends Component {
   }
 
   login = () => {
-    fetch('http://192.168.1.23:3000/users', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+    if (this.state.email === '' || 
+    this.state.password === '') {
+      this.setState({ errorMsg: ''});
+    } else {
+      this.setState({loading: true});
+      fetch('http://192.168.1.23:3000/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           email: this.state.email,
           password: this.state.password
         })
-      }
-    })
-    .then((response) => response.json())
-    .then((res) => {
-      if (res.success === true) {
-        AsyncStorage.setItem('user', res.user);
-        this.props.navigation.navigate('Home');
-      } else {
+      })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.success === true) {
+          AsyncStorage.setItem('user', res.user);
+          // this.props.navigation.navigate('Home');
+          this.setState({errorMsg: ''});
+        } else {
+          this.setState({errorMsg: res.errorMsg});
+        }
+      })
+      .catch((error) => {
         this.setState({errorMsg: 'There was an error'});
-      }
-    })
-    .done();
+      })
+      .then(() => this.setState({loading: false}))
+      .done();
+    }
   }
+
   emailChangeHandler = async (text) => {
     await this.setState({email: text});
   }
@@ -111,6 +126,12 @@ export default class Login extends Component {
             Sign In
           </Text>
         </TouchableOpacity>
+        {this.state.loading &&
+          <ActivityIndicator 
+            size='large'
+            style={styles.loading}
+          />
+        }
       </KeyboardAvoidingView>
     );
   }
@@ -120,6 +141,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#122b4a'
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   logoContainer: {
     alignItems: 'center',

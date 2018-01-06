@@ -8,6 +8,9 @@ import {
 } from 'react-native';
 
 export default class VerifyEmail extends Component {
+  componentWillMount() {
+    this.props.navigation.goBack('Login');
+  }
   render() {
     return (
       <View style={styles.container}>
