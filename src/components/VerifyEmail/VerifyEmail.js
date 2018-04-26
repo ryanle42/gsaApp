@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 
 export default class VerifyEmail extends Component {
   componentWillMount() {
-    this.props.navigation.goBack('Login');
+    this.props.navigation.goBack("Login");
   }
   render() {
     return (
@@ -17,12 +11,11 @@ export default class VerifyEmail extends Component {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require('../../images/logo.png')} />
+            source={require("../../images/logo.png")}
+          />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.textStyle}>
-            Almost done!
-          </Text>
+          <Text style={styles.textStyle}>Almost done!</Text>
           <Text style={styles.textStyle}>
             We just need to verify your email
           </Text>
@@ -39,10 +32,10 @@ export default class VerifyEmail extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#122b4a'
+    backgroundColor: "#122b4a"
   },
   logoContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 50
   },
   logo: {
@@ -53,9 +46,9 @@ const styles = StyleSheet.create({
     marginTop: 70
   },
   textStyle: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    color: '#ebebeb',
+    color: "#ebebeb",
     marginTop: 15
   }
 });

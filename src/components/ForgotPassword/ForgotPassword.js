@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -8,68 +8,59 @@ import {
   KeyboardAvoidingView,
   TextInput,
   ScrollView
-} from 'react-native';
-import ErrorMsg from './ErrorMsg';
+} from "react-native";
+import ErrorMsg from "./ErrorMsg";
 
 export default class ForgotPassword extends Component {
   constructor() {
     super();
     this.state = {
-      errorMsg: '',
-      email: '',
-      password: ''
-    }
+      errorMsg: "",
+      email: "",
+      password: ""
+    };
   }
 
   onSubmit() {
-    this.props.navigation.navigate('ResetSent');
+    this.props.navigation.navigate("ResetSent");
   }
 
   render() {
     return (
-      <ScrollView
-        style={styles.container}
-      >
+      <ScrollView style={styles.container}>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require('../../images/logo.png')} />
+            source={require("../../images/logo.png")}
+          />
         </View>
         <View style={styles.textContainer}>
+          <Text style={styles.textStyle}>Forgot your password?</Text>
           <Text style={styles.textStyle}>
-            Forgot your password?
-          </Text>
-          <Text style={styles.textStyle}>
-            {'We\'ll send you instructions on\nhow' + 
-            ' to reset your password'}
+            {"We'll send you instructions on\nhow" + " to reset your password"}
           </Text>
         </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.emailInput}
-            placeholder={'Email'}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='go'
-            autoCapitalize='none'
+            placeholder={"Email"}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="go"
+            autoCapitalize="none"
             autoCorrect={false}
-            keyboardType='email-address'
+            keyboardType="email-address"
           />
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.sendButton}
-            onPress={() => this.onSubmit() }
+            onPress={() => this.onSubmit()}
           >
-            <Text style={styles.buttonText}>
-              Send Reset
-            </Text>
+            <Text style={styles.buttonText}>Send Reset</Text>
           </TouchableOpacity>
         </View>
-        <ErrorMsg
-          message={this.state.errorMsg}
-          color={null}
-        />
+        <ErrorMsg message={this.state.errorMsg} color={null} />
       </ScrollView>
     );
   }
@@ -78,10 +69,10 @@ export default class ForgotPassword extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#122b4a'
+    backgroundColor: "#122b4a"
   },
   logoContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 50
   },
   logo: {
@@ -93,38 +84,38 @@ const styles = StyleSheet.create({
     marginBottom: 50
   },
   textStyle: {
-    textAlign: 'center',
-    color: '#ebebeb',
+    textAlign: "center",
+    color: "#ebebeb",
     fontSize: 18,
     marginBottom: 10
   },
   inputContainer: {
-    alignItems: 'center'
+    alignItems: "center"
   },
   emailInput: {
-    textAlign: 'center',
+    textAlign: "center",
     height: 50,
     width: 320,
     fontSize: 22,
     marginTop: -30,
-    color: 'white'
+    color: "white"
   },
   buttonContainer: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: "center"
   },
   sendButton: {
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 270,
     height: 55,
-    backgroundColor: '#0082a2',
+    backgroundColor: "#0082a2",
     marginTop: 42,
     padding: 22,
-    borderRadius: 50,
+    borderRadius: 50
   },
   buttonText: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    color: 'white'
+    color: "white"
   }
 });

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
   Image,
   TextInput,
   KeyboardAvoidingView
-} from 'react-native';
+} from "react-native";
 
 export default class LoginForm extends Component {
   render() {
@@ -13,41 +13,41 @@ export default class LoginForm extends Component {
       <View style={styles.container}>
         <View style={styles.emailContainer}>
           <Image
-            style={styles.emailIcon} 
-            source={require('../../images/Email-Icon.png')}
+            style={styles.emailIcon}
+            source={require("../../images/Email-Icon.png")}
           />
           <TextInput
             style={styles.emailInput}
-            placeholder={'Email'}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='next'
+            placeholder={"Email"}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="next"
             onSubmitEditing={() => this.passwordInput.focus()}
-            autoCapitalize='none'
+            autoCapitalize="none"
             autoCorrect={false}
-            keyboardType='email-address'
+            keyboardType="email-address"
             value={this.props.email}
-            onChangeText={(text) => this.props.onEmailChange(text)}
-         />
+            onChangeText={text => this.props.onEmailChange(text)}
+          />
         </View>
         <View style={styles.inputContainer}>
           <Image
             style={styles.lockIcon}
-            source={require('../../images/Lock-Icon.png')}
+            source={require("../../images/Lock-Icon.png")}
           />
           <TextInput
             style={styles.passwordInput}
-            placeholder={'Password'}
+            placeholder={"Password"}
             secureTextEntry
-            autoCapitalize='none'
+            autoCapitalize="none"
             autoCorrect={false}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='go'
-            ref={(input) => this.passwordInput = input}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="go"
+            ref={input => (this.passwordInput = input)}
             value={this.props.password}
-            onChangeText={(text) => this.props.onPasswordChange(text)}
-            />
+            onChangeText={text => this.props.onPasswordChange(text)}
+          />
         </View>
       </View>
     );
@@ -56,12 +56,12 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    alignItems: 'center',
+    flexDirection: "column",
+    alignItems: "center",
     marginTop: 30
   },
   emailContainer: {
-    marginBottom: 25,
+    marginBottom: 25
   },
   emailIcon: {
     width: 25,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     paddingLeft: 47,
     paddingBottom: 20,
     marginTop: -30,
-    color: 'white'
+    color: "white"
   },
   lockIcon: {
     width: 25,
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
     paddingLeft: 47,
     paddingBottom: 20,
     marginTop: -30,
-    color: 'white'
+    color: "white"
   }
 });

@@ -8,8 +8,8 @@ import {
 
 export default class ErrorMsg extends Component {
   render() {
-    let message = this.props.message ? this.props.message : ' ';
-    let color = this.props.color ? this.props.color : '#fc4403';
+    const message = this.props.message ? this.props.message : ' ';
+    const color = this.props.color ? this.props.color : '#fc4403';
     return (
       <View style={styles.container}>
         <Text style={{ color: color }}>

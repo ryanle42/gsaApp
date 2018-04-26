@@ -1,11 +1,5 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 
 export default class ResetSent extends Component {
   render() {
@@ -14,15 +8,12 @@ export default class ResetSent extends Component {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require('../../images/logo.png')} />
+            source={require("../../images/logo.png")}
+          />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.textStyle}>
-            Instructions have been sent to
-          </Text>
-          <Text style={styles.textStyle}>
-            {'pointtpoint@gmail.com'}
-          </Text>
+          <Text style={styles.textStyle}>Instructions have been sent to</Text>
+          <Text style={styles.textStyle}>{"pointtpoint@gmail.com"}</Text>
           <Text style={styles.textStyle}>
             Please check your inbox to complete the password reset
           </Text>
@@ -35,10 +26,10 @@ export default class ResetSent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#122b4a'
+    backgroundColor: "#122b4a"
   },
   logoContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 50
   },
   logo: {
@@ -49,9 +40,9 @@ const styles = StyleSheet.create({
     marginTop: 70
   },
   textStyle: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    color: '#ebebeb',
+    color: "#ebebeb",
     marginTop: 15
   }
 });

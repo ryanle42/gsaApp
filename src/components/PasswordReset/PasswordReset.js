@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -7,18 +7,18 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   ScrollView
-} from 'react-native';
-import ErrorMsg from './ErrorMsg';
-import PasswordForm from './PasswordForm';
+} from "react-native";
+import ErrorMsg from "./ErrorMsg";
+import PasswordForm from "./PasswordForm";
 
 export default class PasswordReset extends Component {
   constructor() {
     super();
     this.state = {
-      errorMsg: '',
-      password: '',
-      confirmPassword: ''
-    }
+      errorMsg: "",
+      password: "",
+      confirmPassword: ""
+    };
   }
 
   async passwordChangeHandler(text) {
@@ -30,25 +30,20 @@ export default class PasswordReset extends Component {
   }
 
   onSubmit() {
-    this.props.navigation.navigate('ResetSent');
+    this.props.navigation.navigate("ResetSent");
   }
 
   render() {
     return (
-      <ScrollView
-        keyboardShouldPersistTaps='handled'
-        style={styles.container}
-      >
+      <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require('../../images/logo.png')} />
+            source={require("../../images/logo.png")}
+          />
         </View>
-        <ErrorMsg
-          message={this.state.errorMsg}
-          color={null}
-        />
-        <PasswordForm 
+        <ErrorMsg message={this.state.errorMsg} color={null} />
+        <PasswordForm
           password={this.state.password}
           confirmPassword={this.state.confirmPassword}
           onPasswordChange={this.passwordChangeHandler.bind(this)}
@@ -56,11 +51,9 @@ export default class PasswordReset extends Component {
         />
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => this.onSubmit}  
+          onPress={() => this.onSubmit}
         >
-          <Text style={styles.submitText}>
-            Change Password
-          </Text>
+          <Text style={styles.submitText}>Change Password</Text>
         </TouchableOpacity>
       </ScrollView>
     );
@@ -70,10 +63,10 @@ export default class PasswordReset extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#122b4a'
+    backgroundColor: "#122b4a"
   },
   logoContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 50
   },
   logo: {
@@ -82,14 +75,14 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#0082a2',
+    alignItems: "center",
+    backgroundColor: "#0082a2",
     marginTop: 194,
     padding: 22
   },
   submitText: {
-    color: '#f0f0f0',
+    color: "#f0f0f0",
     fontSize: 17,
-    fontWeight: '400',
+    fontWeight: "400"
   }
 });

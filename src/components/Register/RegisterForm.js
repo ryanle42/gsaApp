@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   View,
   Image,
   TextInput,
   KeyboardAvoidingView
-} from 'react-native';
+} from "react-native";
 
 export default class RegisterForm extends Component {
   render() {
@@ -14,58 +14,57 @@ export default class RegisterForm extends Component {
         <View style={styles.emailContainer}>
           <Image
             style={styles.emailIcon}
-            source={require('../../images/Email-Icon.png')}
+            source={require("../../images/Email-Icon.png")}
           />
           <TextInput
             style={styles.emailInput}
-            placeholder={'Email'}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='next'
+            placeholder={"Email"}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="next"
             onSubmitEditing={() => this.passwordInput.focus()}
-            autoCapitalize='none'
+            autoCapitalize="none"
             autoCorrect={false}
-            keyboardType='email-address'
+            keyboardType="email-address"
             value={this.props.email}
             blurOnSubmit={false}
-            onChangeText={(text) => this.props.onEmailChange(text)}
+            onChangeText={text => this.props.onEmailChange(text)}
           />
         </View>
         <View style={styles.inputContainer}>
           <Image
             style={styles.lockIcon}
-            source={require('../../images/Lock-Icon.png')}
+            source={require("../../images/Lock-Icon.png")}
           />
           <TextInput
             style={styles.passwordInput}
-            placeholder={'Password'}
+            placeholder={"Password"}
             secureTextEntry
-            autoCapitalize='none'
+            autoCapitalize="none"
             autoCorrect={false}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='next'
-            ref={(input) => this.passwordInput = input}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="next"
+            ref={input => (this.passwordInput = input)}
             onSubmitEditing={() => this.confirmPassInput.focus()}
             value={this.props.password}
             blurOnSubmit={false}
-            onChangeText={(text) => this.props.onPasswordChange(text)}
-
+            onChangeText={text => this.props.onPasswordChange(text)}
           />
         </View>
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.confirmPasswordInput}
-            placeholder={'Confirm Password'}
+            placeholder={"Confirm Password"}
             secureTextEntry
-            autoCapitalize='none'
+            autoCapitalize="none"
             autoCorrect={false}
-            placeholderTextColor={'#a0aab6'}
-            underlineColorAndroid={'#2a405c'}
-            returnKeyType='go'
-            ref={(input) => this.confirmPassInput = input}
+            placeholderTextColor={"#a0aab6"}
+            underlineColorAndroid={"#2a405c"}
+            returnKeyType="go"
+            ref={input => (this.confirmPassInput = input)}
             value={this.props.confirmPassword}
-            onChangeText={(text) => this.props.onConfirmPasswordChange(text)}
+            onChangeText={text => this.props.onConfirmPasswordChange(text)}
           />
         </View>
       </View>
@@ -75,12 +74,12 @@ export default class RegisterForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    alignItems: 'center',
+    flexDirection: "column",
+    alignItems: "center",
     marginTop: 30
   },
   emailContainer: {
-    marginBottom: 10,
+    marginBottom: 10
   },
   emailIcon: {
     width: 25,
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     paddingLeft: 47,
     paddingBottom: 20,
     marginTop: -30,
-    color: 'white'
+    color: "white"
   },
   lockIcon: {
     width: 25,
@@ -108,7 +107,7 @@ const styles = StyleSheet.create({
     paddingLeft: 47,
     paddingBottom: 20,
     marginTop: -30,
-    color: 'white'
+    color: "white"
   },
   confirmPasswordInput: {
     height: 50,
@@ -117,6 +116,6 @@ const styles = StyleSheet.create({
     paddingLeft: 47,
     paddingBottom: 20,
     marginTop: 5,
-    color: 'white'
+    color: "white"
   }
 });
